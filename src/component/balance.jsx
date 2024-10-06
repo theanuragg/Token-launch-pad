@@ -22,20 +22,20 @@ export function ShowSolBalance() {
       <div style={{ position: 'relative', textAlign: 'center', top: '20px' }}>
   <p style={{
     margin: 0,
-    fontSize: '20px', // Increase font size
-    fontWeight: 'bold', // Make text bold
-    color: '#FFD700', // Gold color
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Add a subtle shadow
+    fontSize: '20px', 
+    fontWeight: 'bold',
+    color: '#FFD700',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
   }}>
     SOL Balance:
   </p>
   <div style={{
     margin: 0,
-    fontSize: '32px', // Larger font size for balance
-    fontWeight: '600', // Semi-bold
-    color: '#FFFFFF', // White color
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Consistent shadow
-    fontFamily: 'Arial, sans-serif', // Stylish font
+    fontSize: '32px', 
+    fontWeight: '600', 
+    color: '#FFFFFF', 
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', 
+    fontFamily: 'Arial, sans-serif',
   }}>
     {balance} SOL
   </div>

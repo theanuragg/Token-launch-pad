@@ -59,10 +59,10 @@ export function Tokenlaunchpad() {
     setIsLoading(false);
   };
 
-  // Use useMemo to create a token summary
+  
   const tokenSummary = useMemo(() => {
     return `Token Name: ${token.name}, Symbol: ${token.symbol}, Initial Supply: ${token.amount}`;
-  }, [token.name, token.symbol, token.amount]); // Recalculate when these fields change
+  }, [token.name, token.symbol, token.amount]); 
 
   return (
     <div
@@ -76,17 +76,17 @@ export function Tokenlaunchpad() {
     >
       <h1 style={{
         margin: 0,
-    fontSize: '40px', // Increase font size
-    fontWeight: 'bold', // Make text bold
-    color:'#f3f1ed', // Gold color
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Add a subtle shadow
+    fontSize: '40px',
+    fontWeight: 'bold', 
+    color:'#f3f1ed',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
       }}>Solana Token Launchpad </h1>
          <div style={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       width: '100%',
-      maxWidth: '300px',  // Compact form
+      maxWidth: '300px',  
       margin: '0 auto',
       padding: '8px',
       borderRadius: '8px',
