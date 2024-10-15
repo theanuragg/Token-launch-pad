@@ -1,16 +1,18 @@
+
+
 import React, { useState, useMemo } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { Keypair, SystemProgram, Transaction } from "@solana/web3.js";
 
+
 export function Tokenlaunchpad() {
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
-  const [tokenMintAddress, setTokenMintAddress] = useState("");
+  const [ setTokenMintAddress] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [token, setToken] = useState({
     name: "",
     symbol: "",
-    image: "",
     amount: "",
   });
   const [signature, setSignature] = useState("");
@@ -59,116 +61,44 @@ export function Tokenlaunchpad() {
     setIsLoading(false);
   };
 
-  
   const tokenSummary = useMemo(() => {
     return `Token Name: ${token.name}, Symbol: ${token.symbol}, Initial Supply: ${token.amount}`;
-  }, [token.name, token.symbol, token.amount]); 
+  }, [token.name, token.symbol, token.amount]);
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
-      <h1 style={{
-        margin: 0,
-    fontSize: '40px',
-    fontWeight: 'bold', 
-    color:'#f3f1ed',
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
-      }}>Solana Token Launchpad </h1>
-         <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '100%',
-      maxWidth: '300px',  
-      margin: '0 auto',
-      padding: '8px',
-      borderRadius: '8px',
-    }}>
-      <style>
-        {`
-          textarea::placeholder {
-            color: #333;    /* Darker placeholder text */
-            opacity: 1;     /* Ensure it's fully visible */
-            font-weight: bold;
-          }
-        `}
-      </style>
+    <div className="token-launchpad-container">
+      <h1>Solana Token Launchpad</h1>
+      <div className="token-form">
+        <textarea
+          className="textarea-input"
+          placeholder="Name"
+          value={token.name}
+          onChange={(e) => handleFormFieldChange("name", e)}
+        /><br />
 
-      <textarea
-        placeholder='Name'
-        value={token.name}
-        onChange={(e) => handleFormFieldChange('name', e)}
-        style={{
-          width: '100%',
-          padding: '6px',
-          border: '1px solid #ccc',
-          borderRadius: '3px',
-          marginBottom: '6px',
-          fontSize: '12px',   
-          resize: 'none',
-          backgroundColor: 'rgba(255, 255, 255, 0.4)', 
-          color: '#000',
-        }}
-      /><br />
+        <textarea
+          className="textarea-input"
+          placeholder="Symbol"
+          value={token.symbol}
+          onChange={(e) => handleFormFieldChange("symbol", e)}
+        /><br />
 
-      <textarea
-        placeholder='Symbol'
-        value={token.symbol}
-        onChange={(e) => handleFormFieldChange('symbol', e)}
-        style={{
-          width: '100%',
-          padding: '6px',
-          border: '1px solid #ccc',
-          borderRadius: '3px',
-          marginBottom: '6px',
-          fontSize: '12px',
-          resize: 'none',
-          backgroundColor: 'rgba(255, 255, 255, 0.4)', 
-          color: '#000',
-        }}
-      /><br />
+        <textarea
+          className="textarea-input"
+          placeholder="Initial Supply"
+          value={token.amount}
+          onChange={(e) => handleFormFieldChange("amount", e)}
+        /><br />
 
-      <textarea
-        placeholder='Initial Supply'
-        value={token.amount}
-        onChange={(e) => handleFormFieldChange('amount', e)}
-        style={{
-          width: '100%',
-          padding: '6px',
-          border: '1px solid #ccc',
-          borderRadius: '3px',
-          marginBottom: '6px',
-          fontSize: '12px',   
-          resize: 'none',
-          backgroundColor: 'rgba(255, 255, 255, 0.4)', 
-          color: '#000',
-        }}
-      /><br />
+        <button
+          className="token-button"
+          onClick={createToken}
+          disabled={isLoading}
+        >
+          {isLoading ? "Creating..." : "Create a token"}
+        </button>
+      </div>
 
-      <button
-        onClick={createToken}
-        disabled={isLoading}
-        style={{
-          width: '100%',
-          padding: '8px',
-          backgroundColor: isLoading ? '#999' : 'black',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: isLoading ? 'not-allowed' : 'pointer',
-          fontSize: '12px',   
-          transition: 'background-color 0.3s ease',
-        }}>
-        {isLoading ? "Creating..." : "Create a token"}
-      </button>
-    </div>
       {signature && (
         <div>
           <h3>Transaction Details:</h3>
