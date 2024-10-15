@@ -25,12 +25,6 @@ function App() {
                   left: '10px',
                 }}
               />
-              <WalletDisconnectButton
-                style={{
-                  position: 'absolute',
-                  top: '13px',
-                  right: '10px',
-                }}
               />
             </div>
             <ShowSolBalance  />
