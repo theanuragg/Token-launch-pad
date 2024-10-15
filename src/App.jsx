@@ -18,14 +18,7 @@ function App() {
         <WalletProvider wallets={[]} autoConnect>
           <WalletModalProvider>
             <div style={{ position: 'relative', width: '100%' }}>
-              <WalletMultiButton
-                style={{
-                  position:'absolute',
-                  top: '0px',
-                  left: '10px',
-                }}
-              />
-              />
+              <WalletMultiButton/>
             </div>
             <ShowSolBalance  />
            <Tokenlaunchpad style={{ marginTop: '-50px' }} />
