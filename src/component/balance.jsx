@@ -24,17 +24,15 @@ export function ShowSolBalance() {
     margin: 0,
     fontSize: '20px', 
     fontWeight: 'bold',
-    color: '#FFD700',
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-  }}>
+    color:'#4164f0',
+      }}>
     SOL Balance:
   </p>
   <div style={{
     margin: 0,
     fontSize: '32px', 
     fontWeight: '600', 
-    color: '#FFFFFF', 
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', 
+    colour:'##100f17',
     fontFamily: 'Arial, sans-serif',
   }}>
     {balance} SOL
@@ -45,3 +43,4 @@ export function ShowSolBalance() {
 }
 
 export default ShowSolBalance;
+
